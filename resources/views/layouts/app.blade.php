@@ -37,7 +37,7 @@
               <a href="{{route('register')}}" class="nav-item is-tab">Signup</a>
             @else
               <button id="user_button" class="dropdown nav-item is-aligned-right is-tab">
-                Bilal Saeed <span class="icon"><i class="fa fa-caret-down"></i></span>
+              Hey ,  {{Auth::user()->name}}<span class="icon"><i class="fa fa-caret-down"></i></span>
                 <ul class="dropdown-menu">
 
                   <li>
