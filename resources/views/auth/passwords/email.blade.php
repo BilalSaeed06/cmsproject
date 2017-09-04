@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -42,5 +42,43 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+@if (session('status'))
+    <div class="notification is-success">
+        {{ session('status') }}
+    </div>
+@endif
+
+<div class="columns">
+  <div class="column is-one-third is-offset-one-third">
+    <div class="card m-t-70">
+      <div class="card-content">
+        <h1 class="title">
+          Forgot Password
+        </h1>
+        <form role="form" action="{{route('password.email')}}" method="post">
+{{ csrf_field() }}
+
+        <div class="field">
+          <label for="email" class="label m-t-50">
+            Email
+          </label>
+          <p class="control">
+            <input class="input {{$errors->has('email')? 'is-danger':''}}" type="text" name="email" id="email" placeholder="email@examole.com" value="{{old('email')}}" >
+          </p>
+          @if ($errors->has('email'))
+            <p class="help is-danger">{{$errors->first('email')}}</p>
+          @endif
+        </div>
+<button class="button is-primary is-outlined m-t-20 is-fullwidth">
+  Get Reset Link
+</button>
+</form>
+      </div>
+  </div>
+  <h5 class="has-text-centered m-t-20"><a href="{{route('login')}}" class="is-muted"><i class="fa fa-caret-left m-r-5"></i>Go Back to Login</a></h5>
+
+  </div>
 </div>
 @endsection

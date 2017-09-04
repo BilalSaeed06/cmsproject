@@ -32,9 +32,9 @@
           </div>
           <div class="nav-right" style="overflow:visible">
 
-            @if (!Auth::guest())
-              <a href="#" class="nav-item is-tab">Login</a>
-              <a href="#" class="nav-item is-tab">Signup</a>
+            @if (Auth::guest())
+              <a href="{{route('login')}}" class="nav-item is-tab">Login</a>
+              <a href="{{route('register')}}" class="nav-item is-tab">Signup</a>
             @else
               <button id="user_button" class="dropdown nav-item is-aligned-right is-tab">
                 Bilal Saeed <span class="icon"><i class="fa fa-caret-down"></i></span>
